@@ -1,0 +1,547 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+
+body>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: #1d1d1d;
+
+    background-image: url('./images/default/catrain.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    transition: all 1.5s ease-in-out;
+}
+
+
+/********************************************************************/
+@font-face {
+    font-family: 'Indie Flower';
+    src: url(./assets/fonts/caveat-regular-webfont.woff2) format('woff2'),
+        url(./assets/fonts/caveat-regular-webfont.woff) format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Daruda-one';
+    src: url('./assets/darumadropone-regular-webfont.woff2') format('woff2'),
+        url('./assets/darumadropone-regular-webfont.woff') format('woff');
+}
+
+/********************************************************************/
+.page {
+    font-family: 'Daruda-one', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0;
+    height: 100%;
+    width: 100%;
+    /*background-color: rgb(43, 43, 43, 0.4);*/
+}
+
+/**************Title****************************/
+#title {
+    color: rgb(255, 255, 255);
+
+    font-size: 100px;
+    margin: 20px;
+    /**/
+}
+
+#title.defaultTitle {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: url('./images/default/title.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/**************DisplayREcords************************************/
+mid-content {
+    display: flex;
+}
+
+
+#displayRecords {
+    background-image: url('./images/default/historyContainer.gif');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    border-radius: 50px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: scroll;
+
+    gap: 15px;
+
+    width: 300px;
+    height: 700px;
+    /*background: linear-gradient(hsl(0, 0%, 0%), //elgant
+            hsl(0, 0%, 12%) 20%,
+            hsl(0, 0%, 6%));*/
+    color: white;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 20px;
+
+    transform: translateX(0%);
+    position: absolute;
+
+    opacity: 0;
+    z-index: -1;
+    transition: transform 3000ms ease;
+    transition: z-index 1s step-start, opacity 2s linear;
+}
+
+#displayRecords>* {
+    padding: 10px 0 0 10px;
+}
+
+
+#displayRecords>* {
+    /**/
+    margin: 10px 0px 0px 10px;
+}
+
+
+#displayRecords.recordsMoveOn {
+    z-index: 1;
+    opacity: 1;
+    transform: translateX(-100%);
+}
+
+#clearHistory {
+    color: white;
+    background-color: rgb(35, 35, 35);
+    border: 1px solid gray;
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 800;
+    height: 50px;
+    padding: 15px 50px 20px 50px;
+
+    align-self: center;
+    margin-top: auto;
+    margin-bottom: 15px;
+    z-index: 1;
+}
+
+#clearHistory:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    font-size: 22px;
+    transition: 2s;
+    border-radius: 10px;
+    padding: 15px 60px 20px 60px;
+}
+
+/***************Container***************************/
+#container {
+    background-image: url('./images/default/finallyContainer.gif');
+    background-position: right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+
+    margin: 0 auto;
+    width: 500px;
+    height: 700px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px auto;
+    margin-bottom: 40px;
+
+    /**/
+}
+
+
+/****************display and stuff**********************/
+display {
+    background-image: url('./images/default/study.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+
+    box-shadow: 0 0 20px 5px black;
+
+    margin: 50px 50px 30px 50px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 24px;
+    align-items: flex-end;
+
+    color: whitesmoke;
+}
+
+#display-top {
+    margin: 10px;
+    color: rgb(119, 255, 84);
+}
+
+#display-bottom {
+    margin: 10px;
+}
+
+/*******************************************/
+/************buttons and stuff**************/
+buttons {
+
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(6, 1fr);
+    margin: 0px 50px 50px 50px;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+buttons>input[type="button"]:not(#equal) {
+    height: 70px;
+    width: 70px;
+}
+
+#equal {
+    grid-column: 3/5;
+    height: 70px;
+}
+
+buttons>* {
+    color: white;
+
+    border-radius: 25px;
+    background-color: transparent;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.94);
+
+    font-size: 26px;
+    font-family: 'Indie flower', sans-serif;
+    font-weight: bolder;
+    margin: 4.5px 0;
+}
+
+.buttonsDefault > *:hover{
+    transform: scale(1.2);
+    background-image: url('./images/default/buttonsAnim.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: all 1s ease-in-out;
+}
+
+/***************************************************************************************************/
+/****************Themes**********************/
+/******Display records***********/
+#displayRecords.displayRecordsOnePiece {
+    background-image: url('./images/onePiece/luffyKiDsHIP.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-shadow:
+        -1px 0px 0px rgb(0, 0, 0),
+        0px 0px 50px rgb(0, 0, 0),
+        0px -1px 50px rgb(0, 0, 0),
+        0px 1px 0px rgb(0, 0, 0);
+    color: white;
+}
+
+#displayRecords.displayRecordsUniverse {
+    background-image: url('./images/universe/seeStars.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-shadow:
+        -1px 0px 0px rgb(0, 0, 0),
+        0px 0px 50px rgb(0, 0, 0),
+        0px -1px 50px rgb(0, 0, 0),
+        0px 1px 0px rgb(0, 0, 0);
+    color: white;
+}
+
+
+/*Display themes*/
+display.universeDisplay {
+    background-image: url('./images/universe/displayEarth.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    border-radius: 10px;
+    text-shadow:
+        -1px 0px 0px rgb(0, 0, 0),
+        0px 0px 0px rgb(0, 0, 0),
+        0px -1px 0px rgb(0, 0, 0),
+        0px 1px 0px rgb(0, 0, 0);
+}
+
+display.onePieceDisplay {
+    background-image: url('./images/onePiece/friends.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    text-shadow:
+        -1px 0px 0px rgb(0, 0, 0),
+        0px 0px 50px rgb(0, 0, 0),
+        0px -1px 50px rgb(0, 0, 0),
+        0px 1px 0px rgb(0, 0, 0);
+}
+
+#display-top.displayTopOnePiece {
+    color: white;
+}
+
+display.displayBorders {
+    border-radius: 20px;
+}
+
+/*Buttons themes*/
+
+.buttonsUniverse>* {
+    box-shadow: 0px 0px 10px 2px whitesmoke;
+    background-color: white;
+    color: #1d1d1d;
+
+    transition: all 1s ease-in-out;
+
+}
+
+.buttonsUniverse>*:hover {
+    background-image: url('images/universe/moonButtons2.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    transform: scale(1.1);
+}
+
+.equalUniverse:hover {
+    background-position: top;
+}
+
+.buttonsOnePiece>* {
+    border-radius: 10px;
+    color: white;
+    background-color: #1d1d1d00;
+    box-shadow: 0px 0px 10px 10px rgb(0, 0, 0);
+
+
+    transition: all 0.5s ease-in-out;
+    /**/
+}
+
+.buttonsOnePiece>*:hover {
+    background-image: url('images/onePiece/luffyButtons.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.1);
+}
+
+.buttonsBorders>* {
+    border-radius: 100%;
+}
+
+
+/*Title themes*/
+#title.universeTitle {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: url('./images/universe/stars-star.gif');
+    background-size: auto;
+    background-repeat: repeat;
+
+
+    color: rgb(0, 0, 0);
+    text-shadow:
+        -1px 0px 50px rgb(255, 255, 255, 0.1),
+        0px 0px 50px rgb(255, 255, 255, 0.1),
+        0px -1px 50px rgb(255, 255, 255, 0.1),
+        0px 1px 50px rgba(0, 0, 0, 0);
+}
+
+#title.titleOnePiece {
+    background-image: url('./images/onePiece/titleOnePiece2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*Container themes*/
+#container.containerBorders {
+    border-radius: 20px;
+}
+
+#container.universeContainer {
+    background-image: url('./images/stars.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#container.onePieceContainer {
+    background-image: url('./images/onePiece/ContainerLuffyAndSky.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+/**************************************************************************/
+#container.elegantThemeContainer {
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 0px;
+    background-image: url('');
+}
+
+universe.elegantTitle {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.elegantThemeButtons>* {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    border-radius: 0%;
+    background-color: white;
+    transition: all 1s ease-in-out;
+}
+ 
+.elegantThemeButtons>*:hover{
+    background-image: url('');
+}
+
+.elegantBack {
+    background-image: url('./images/Elegant/elegantBack.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#title.elegantTitle{
+    font-family: 'Times New Roman', Times, serif;
+    -webkit-text-fill-color: white;
+}
+
+.buttonsElegant>* {
+    color: black;
+}
+
+display.elegantDisplay {
+    background-color: #3d3d3d;
+    background-image: url('');
+}
+
+#displayRecords.displayRecordsElegant {
+    background-color: #1d1d1d;
+    background-image: url('');
+    color: chartreuse;
+}
+
+
+
+/***************************************************************************************************/
+/*********************bodyBackground***********************************/
+.universeBack {
+    background-size: cover;
+    background-repeat: no-repeat scroll;
+    animation-name: universe;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes universe {
+    0% {
+        background-image: url('./images/u1.jpg');
+    }
+
+    25% {
+        background-image: url('./images/u2.jpg');
+    }
+
+    50% {
+        background-image: url('./images/u3.jpg');
+    }
+
+    75% {
+        background-image: url('./images/u4.jpg');
+    }
+
+    100% {
+        background-image: url('./images/u5.jpg');
+    }
+}
+
+/****/
+.onePieceBack {
+    background-image: url('./images/onePiece/titleOnePiece3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
